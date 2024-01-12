@@ -1,7 +1,11 @@
 pkgs: with pkgs; 
   let dwm = pkgs.dwm.overrideAttrs {
     # TODO: build from patches
-    src = ~/.local/src/dwm;
+    version = "6.4";
+    patches = [
+      ./dotfiles/dwm/patches/dwm-xrdb-6.4.diff
+      ./dotfiles/dwm/patches/my_dwm_patch.diff
+    ];
   };
 
   st = pkgs.st.overrideAttrs {
