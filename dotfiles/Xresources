@@ -1,45 +1,52 @@
 ! DPI for 4k display
 Xft.dpi: 192
 
-*.foreground:   #ffffff
-*.background:   #000000
-*.cursorColor:  #ffffff
+*.foreground:    #A9B1D6
+*.background:    #1A1B26
+*.cursorColor:   #A9B1D6
+*.highlightColor:#3A3F4B
 
-! black
-*.color0:       #333333
-*.color8:       #3d3d3d
+! Normal      Bright
+! --------    -------
+! 0 Black      8 Black
+! 1 Red        9 Red
+! 2 Yellow    10 Yellow
+! 3 Green     11 Green
+! 4 Blue      12 Blue
+! 5 Magenta   13 Magenta
+! 6 Cyan      14 Cyan
+! 7 White     15 White
 
-! red
-*.color1:       #8c4665
-*.color9:       #bf4d80
-
-! green
-*.color2:       #287373
-*.color10:      #53a6a6
-
-! yellow
-*.color3:       #7c7c99
-*.color11:      #9e9ecb
-
-! blue
-*.color4:       #395573
-*.color12:      #477ab3
-
-! magenta
-*.color5:       #5e468c
-*.color13:      #7e62b3
-
-! cyan
-*.color6:       #31658c
-*.color14:      #6096bf
-
-! white
-*.color7:       #899ca1
-*.color15:      #c0c0c0
+! Black colours
+*.color0:        #1A1B26
+*.color8:        #4E5173
+! Red colours
+*.color1:        #F7768E
+*.color9:        #E06C75
+! Yellow colours
+*.color2:        #E0AF68
+*.color10:       #D19A66
+! Green colours
+*.color3:        #9ECE6A
+*.color11:       #98C379
+! Blue colours
+*.color4:        #7AA2F7
+*.color12:       #61AFEF
+! Magenta (pink, !green) colours
+*.color5:        #9A7ECC
+*.color13:       #C678DD
+! Cyan (blue + green)
+*.color6:        #4ABAAF
+*.color14:       #56B6C2
+! White colours
+*.color7:        #ACB0D0
+*.color15:       #ABB2BF
 
 ! DWM settings
-dwm.font: Hack Nerd Font Mono:size=18:antialias=true:autohint=true
-dwm.normbgcolor: #ffffff
-dwm.normfgcolor: #bf4d80
-dwm.selbgcolor: #bf4d80
-dwm.selfgcolor: #ffffff
+dwm.font:               Hack Nerd Font Mono:size=18:antialias=true:autohint=true
+dwm.normbgcolor:        #1a1b26
+dwm.normfgcolor:        #a9b1d6
+dwm.normbordercolor:    #1a1b26
+dwm.selbgcolor:         #4e5173
+dwm.selfgcolor:         #a9b1d6
+dwm.selbordercolor:     #a9b1d6
