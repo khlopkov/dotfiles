@@ -8,14 +8,17 @@ pkgs: with pkgs;
     # TODO: build from patches
     src = ~/.local/src/st;
   };
+
+  python3 = pkgs.python311Full.buildEnv.override {
+    extraLibs = [ 
+      pkgs.python311Full.pkgs.pip
+    ];
+  };
+  helpers = import ./helpers.nix {
+    inherit pkgs;
+    inherit lib;
+  };
 in [
-
-    # # Adds the 'hello' command to your environment. It prints a friendly
-    # # "Hello, world!" when run.
-    # pkgs.hello
-
-    pkgs.git
-    pkgs.neovim
 
     # Suckless tools
     st
@@ -23,18 +26,28 @@ in [
     dwm
 
     # Browser
-    pkgs.librewolf
+    pkgs.firefox
 
     # Terminal
     pkgs.rxvt-unicode
-    pkgs.vte
+    (helpers.nixGLWrap pkgs.alacritty)
+
+    #Editors 
+    pkgs.neovim
 
     # System preferences
     pkgs.pavucontrol
-
     pkgs.nerdfonts
+
+    # Utilities
     pkgs.unzip
+    pkgs.git
+    pkgs.xclip # X11 Clipboard
+    pkgs.ripgrep # For recursive search
     
+    # Compilers
+    python3
+    pkgs.cargo
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
