@@ -22,6 +22,7 @@
   # plain files is through 'home.file'.
   home.file = {
     ".config/nvim".source = ./dotfiles/nvim;
+    ".config/alacritty".source = ./dotfiles/alacritty;
     ".Xresources".source = ./dotfiles/Xresources;
     ".xinitrc".source = ./dotfiles/xinitrc;
   };
