@@ -15,6 +15,7 @@ return {
         "python",
         "query",
         "regex",
+        "c",
         "tsx",
         "typescript",
         "vim",
