@@ -1,16 +1,10 @@
 pkgs: with pkgs; 
   let dwm = pkgs.dwm.overrideAttrs {
-    # TODO: build from patches
     version = "6.4";
     patches = [
       ./dotfiles/dwm/patches/dwm-xrdb-6.4.diff
       ./dotfiles/dwm/patches/my_dwm_patch.diff
     ];
-  };
-
-  st = pkgs.st.overrideAttrs {
-    # TODO: build from patches
-    src = ~/.local/src/st;
   };
 
   python3 = pkgs.python311Full.buildEnv.override {
@@ -25,7 +19,6 @@ pkgs: with pkgs;
 in [
 
     # Suckless tools
-    st
     pkgs.dmenu
     dwm
 
@@ -33,7 +26,6 @@ in [
     pkgs.firefox
 
     # Terminal
-    pkgs.rxvt-unicode
     (helpers.nixGLWrap pkgs.alacritty)
 
     #Editors 
@@ -52,17 +44,4 @@ in [
     # Compilers
     python3
     pkgs.cargo
-
-    # # It is sometimes useful to fine-tune packages, for example, by applying
-    # # overrides. You can do that directly here, just don't forget the
-    # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
-    # # fonts?
-    # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
-
-    # # You can also create simple shell scripts directly inside your
-    # # configuration. For example, this adds a command 'my-hello' to your
-    # # environment:
-    # (pkgs.writeShellScriptBin "my-hello" ''
-    #   echo "Hello, ${config.home.username}!"
-    # '')
   ]
