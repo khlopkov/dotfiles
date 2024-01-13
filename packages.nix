@@ -33,6 +33,7 @@ in [
     pkgs.picom     # X11 composer for opacity https://github.com/yshui/picom
     pkgs.nerdfonts # A lot of fonts with icons
     pkgs.dolphin   # A file manager by KDE
+    pkgs.feh       # Image viewer, set background
 
     # Browser
     pkgs.firefox
@@ -53,12 +54,11 @@ in [
     
     # Editors 
     pkgs.neovim
-    pkgs.feh     # Image viewer, set background
     pkgs.jetbrains.idea-community
 
     # Compilers and dev tools
     python3
-    pkgs.cargo # Rust dependencies manager
+    pkgs.cargo  # Rust dependencies manager
     jdk         # Java DevKit 21
     gradle      # Gradle build tool for Java projects
   ]
