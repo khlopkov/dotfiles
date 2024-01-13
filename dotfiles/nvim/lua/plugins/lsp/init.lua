@@ -4,6 +4,9 @@ return {
   {
      "lnl7/vim-nix",
   },
+  {
+    'udalov/kotlin-vim'
+  },
   -- lspconfig
   {
     "neovim/nvim-lspconfig",
@@ -66,6 +69,7 @@ return {
           },
         },
         nil_ls = {},
+        kotlin_language_server = {},
         clangd = {},
       },
       -- you can do any additional lsp server setup here
@@ -187,6 +191,7 @@ return {
       ensure_installed = {
         "stylua",
         "shfmt",
+        "ktlint",
         -- "flake8",
       },
     },

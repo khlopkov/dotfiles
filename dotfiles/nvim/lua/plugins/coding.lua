@@ -18,6 +18,7 @@ return {
         "c",
         "tsx",
         "typescript",
+        "kotlin",
         "vim",
         "yaml",
       },

@@ -17,6 +17,13 @@ pkgs: with pkgs;
     inherit pkgs;
     inherit lib;
   };
+
+  # See compatibility matrix
+  # https://docs.gradle.org/current/userguide/compatibility.html
+  jdk    = pkgs.jdk20;
+  gradle = (callPackage gradle-packages.gradle_8 {
+             java = jdk;
+           });
 in [
 
     # Desktop management
@@ -47,8 +54,11 @@ in [
     # Editors 
     pkgs.neovim
     pkgs.feh     # Image viewer, set background
+    pkgs.jetbrains.idea-community
 
-    # Compilers
+    # Compilers and dev tools
     python3
     pkgs.cargo # Rust dependencies manager
+    jdk         # Java DevKit 21
+    gradle      # Gradle build tool for Java projects
   ]
