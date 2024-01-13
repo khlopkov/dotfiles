@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, ... }:
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -23,8 +23,10 @@
   home.file = {
     ".config/nvim".source = ./dotfiles/nvim;
     ".config/alacritty".source = ./dotfiles/alacritty;
+    ".config/dwmbar".source = ./dotfiles/dwmbar;
     ".Xresources".source = ./dotfiles/Xresources;
     ".xinitrc".source = ./dotfiles/xinitrc;
+    ".wallpaper.jpg".source = ./dotfiles/wallpaper.jpg;
   };
 
   # Home Manager can also manage your environment variables through

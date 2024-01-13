@@ -1,0 +1,17 @@
+#!/nix/store/q8qq40xg2grfh9ry1d9x4g7lq4ra7n81-bash-5.2-p21/bin/bash
+
+# What modules, in what order
+MODULES="volume wifi date time"
+
+# Delay between showing the status bar
+DELAY="0.05"
+
+# Where the custom modules are stored
+CUSTOM_DIR="/home/$USER/.config/dwmbar/modules/custom/"
+
+# Separator between modules
+SEPARATOR=" | "
+
+# Padding at the end and beggining of the status bar
+RIGHT_PADDING=" "
+LEFT_PADDING=" "

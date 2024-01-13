@@ -1,3 +1,9 @@
 xrdb -merge ~/.Xresources
+feh --bg-fill ~/.wallpaper.jpg
+picom -b
+
+dwmbar &
+nm-applet --sm-disable &
+
 exec dwm
 

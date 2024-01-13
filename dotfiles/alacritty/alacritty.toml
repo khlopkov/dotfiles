@@ -21,3 +21,5 @@ style = "Italic"
 family = "Hack Nerd Font Mono"
 style = "Regular"
 
+[window]
+opacity = 0.8
