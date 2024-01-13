@@ -24,9 +24,17 @@
     ".config/nvim".source = ./dotfiles/nvim;
     ".config/alacritty".source = ./dotfiles/alacritty;
     ".config/dwmbar".source = ./dotfiles/dwmbar;
+    ".config/tmux".source = ./dotfiles/tmux;
+
     ".Xresources".source = ./dotfiles/Xresources;
     ".xinitrc".source = ./dotfiles/xinitrc;
     ".wallpaper.jpg".source = ./dotfiles/wallpaper.jpg;
+
+    # Install Tmux Plugin Manager from the Github repository
+    ".tmux/plugins/tpm".source = builtins.fetchGit {
+      url = "https://github.com/tmux-plugins/tpm";
+      rev = "99469c4a9b1ccf77fade25842dc7bafbc8ce9946";
+    };
   };
 
   # Home Manager can also manage your environment variables through

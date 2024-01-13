@@ -31,7 +31,8 @@ in [
     pkgs.firefox
 
     # Terminal
-    (helpers.nixGLWrap pkgs.alacritty)
+    (helpers.nixGLWrap pkgs.alacritty)  # Alacritty uses OpenGL, nixGLWrap required to run on non-NixOS distros
+    pkgs.tmux                           # A Terminal multiplexor
 
     # System preferences
     pkgs.pavucontrol          # sound control (Pulse Audio)
