@@ -192,6 +192,7 @@ return {
         "stylua",
         "shfmt",
         "ktlint",
+        "editorconfig-checker",
         -- "flake8",
       },
     },
