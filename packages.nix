@@ -49,6 +49,7 @@ in [
     # Utilities
     pkgs.unzip
     pkgs.git
+    pkgs.lazygit # A Git terminal viewer
     pkgs.xclip   # X11 Clipboard
     pkgs.ripgrep # For recursive search
     
