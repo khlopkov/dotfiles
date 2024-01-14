@@ -62,8 +62,7 @@ return {
           if not linter then
             Util.warn("Linter not found: " .. name, { title = "nvim-lint" })
           end
-          return linter and
-              not (type(linter) == "table" and linter.condition and not linter.condition(ctx))
+          return linter and not (type(linter) == "table" and linter.condition and not linter.condition(ctx))
         end, names)
 
         -- Run linters.
@@ -73,7 +72,7 @@ return {
       end
 
       local ktlint = require("lint.linters.ktlint")
-      ktlint.args = { '--reporter=json', '--stdin' }
+      ktlint.args = { "--reporter=json", "--stdin" }
 
       vim.api.nvim_create_autocmd(opts.events, {
         group = vim.api.nvim_create_augroup("nvim-lint", { clear = true }),
@@ -82,7 +81,7 @@ return {
     end,
   },
   {
-    'stevearc/conform.nvim',
+    "stevearc/conform.nvim",
     requires = {
       "mfussenegger/nvim-lint",
     },
@@ -111,5 +110,5 @@ return {
 
       conform.setup(opts)
     end,
-  }
+  },
 }

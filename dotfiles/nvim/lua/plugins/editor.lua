@@ -1,39 +1,39 @@
 local Util = require("lazyvim.util")
 
 local kind_filter = {
-    default = {
-      "Class",
-      "Constructor",
-      "Enum",
-      "Field",
-      "Function",
-      "Interface",
-      "Method",
-      "Module",
-      "Namespace",
-      "Package",
-      "Property",
-      "Struct",
-      "Trait",
-    },
-    markdown = false,
-    help = false,
-    -- you can specify a different filter for each filetype
-    lua = {
-      "Class",
-      "Constructor",
-      "Enum",
-      "Field",
-      "Function",
-      "Interface",
-      "Method",
-      "Module",
-      "Namespace",
-      -- "Package", -- remove package since luals uses it for control flow structures
-      "Property",
-      "Struct",
-      "Trait",
-    },
+  default = {
+    "Class",
+    "Constructor",
+    "Enum",
+    "Field",
+    "Function",
+    "Interface",
+    "Method",
+    "Module",
+    "Namespace",
+    "Package",
+    "Property",
+    "Struct",
+    "Trait",
+  },
+  markdown = false,
+  help = false,
+  -- you can specify a different filter for each filetype
+  lua = {
+    "Class",
+    "Constructor",
+    "Enum",
+    "Field",
+    "Function",
+    "Interface",
+    "Method",
+    "Module",
+    "Namespace",
+    -- "Package", -- remove package since luals uses it for control flow structures
+    "Property",
+    "Struct",
+    "Trait",
+  },
 }
 
 local function get_kind_filter(buf)
@@ -48,7 +48,6 @@ local function get_kind_filter(buf)
   ---@diagnostic disable-next-line: return-type-mismatch
   return type(kind_filter) == "table" and type(kind_filter.default) == "table" and kind_filter.default or nil
 end
-
 
 return {
   -- file explorer

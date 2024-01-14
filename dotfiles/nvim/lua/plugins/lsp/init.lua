@@ -2,15 +2,15 @@ local Util = require("lazyvim.util")
 
 return {
   {
-     "lnl7/vim-nix",
+    "lnl7/vim-nix",
   },
   {
-    'udalov/kotlin-vim'
+    "udalov/kotlin-vim",
   },
   -- lspconfig
   {
     "neovim/nvim-lspconfig",
-    lazy=false,
+    lazy = false,
     dependencies = {
       { "folke/neoconf.nvim", cmd = "Neoconf", config = false, dependencies = { "nvim-lspconfig" } },
       { "folke/neodev.nvim", opts = {} },
