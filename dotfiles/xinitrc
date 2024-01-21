@@ -4,6 +4,7 @@ picom -b
 
 dwmbar &
 nm-applet --sm-disable &
+sxhkd &
 
 exec dwm
 

@@ -1,0 +1,2 @@
+Shift_L + alt
+	setxkbmap -query | grep -q 'layout:.*ru' && setxkbmap us || setxkbmap ru,us

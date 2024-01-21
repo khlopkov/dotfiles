@@ -34,6 +34,7 @@ in [
     pkgs.nerdfonts # A lot of fonts with icons
     pkgs.dolphin   # A file manager by KDE
     pkgs.feh       # Image viewer, set background
+    pkgs.sxhkd     # X11 keybindings daemon
 
     # Browser
     pkgs.firefox

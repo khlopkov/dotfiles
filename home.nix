@@ -25,6 +25,7 @@
     ".config/alacritty".source = ./dotfiles/alacritty;
     ".config/dwmbar".source = ./dotfiles/dwmbar;
     ".config/tmux".source = ./dotfiles/tmux;
+    ".config/sxhkd".source = ./dotfiles/sxhkd;
 
     ".Xresources".source = ./dotfiles/Xresources;
     ".xinitrc".source = ./dotfiles/xinitrc;
