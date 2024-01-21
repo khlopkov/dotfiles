@@ -64,4 +64,5 @@ in [
     pkgs.cargo  # Rust dependencies manager
     jdk         # Java DevKit 21
     gradle      # Gradle build tool for Java projects
+    docker-compose
   ]
