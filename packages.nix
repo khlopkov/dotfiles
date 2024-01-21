@@ -42,6 +42,7 @@ in [
     # Terminal
     (helpers.nixGLWrap pkgs.alacritty)  # Alacritty uses OpenGL, nixGLWrap required to run on non-NixOS distros
     pkgs.tmux                           # A Terminal multiplexor
+    pkgs.neofetch                       # Prints information about the system in a preatty way
 
     # System preferences
     pkgs.pavucontrol          # sound control (Pulse Audio)

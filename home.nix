@@ -70,6 +70,8 @@
       plugins = [ "git" ];
       theme = "robbyrussell";
     };
+
+    profileExtra = "neofetch";
   };
 
   fonts.fontconfig.enable = true;
