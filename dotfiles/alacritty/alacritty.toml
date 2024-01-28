@@ -22,7 +22,7 @@ family = "Hack Nerd Font Mono"
 style = "Regular"
 
 [window]
-opacity = 0.8
+opacity = 0.9
 
 [env]
 TERM = "xterm-256color"
