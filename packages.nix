@@ -60,7 +60,7 @@ in [
 
     # Compilers and dev tools
     python3
-    pkgs.cargo  # Rust dependencies manager
+    pkgs.rustup # Rust toolchain manager
     jdk         # Java DevKit 21
     gradle      # Gradle build tool for Java projects
     docker-compose
