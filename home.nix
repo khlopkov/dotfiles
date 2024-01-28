@@ -55,6 +55,8 @@
   #
   home.sessionVariables = {
      EDITOR = "nvim";
+     XDG_CURRENT_DESKTOP="dwm";
+
   };
 
   # Let Home Manager install and manage itself.
