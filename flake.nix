@@ -4,7 +4,12 @@
   inputs = {
     # Specify the source of Home Manager and Nixpkgs.
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixgl.url = "github:guibou/nixGL"; 
+    nixgl = {
+      url = "github:guibou/nixGL"; 
+      # Probably better to remove to work with pinned nixpkgs from of nixGL's inputs.
+      # Though it works with current nixpkgs, though will work with the same version as home environment
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
