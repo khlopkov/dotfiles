@@ -63,5 +63,6 @@ in [
     pkgs.rustup # Rust toolchain manager
     jdk         # Java DevKit 21
     gradle      # Gradle build tool for Java projects
+    pkgs.go     # golang pkg
     docker-compose
   ]

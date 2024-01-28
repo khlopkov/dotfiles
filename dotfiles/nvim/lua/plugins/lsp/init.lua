@@ -1,12 +1,36 @@
 local Util = require("lazyvim.util")
 
 return {
+  -- nix support
   {
     "lnl7/vim-nix",
   },
+  -- Kotlin support
   {
     "udalov/kotlin-vim",
   },
+  -- Rust support
+  {
+    "mrcjkb/rustaceanvim",
+    version = "^3",
+    ft = { "rust" },
+  },
+  -- Golang support
+  {
+    "ray-x/go.nvim",
+    dependencies = { -- optional packages
+      "ray-x/guihua.lua",
+      "neovim/nvim-lspconfig",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    config = function()
+      require("go").setup()
+    end,
+    event = { "CmdlineEnter" },
+    ft = { "go", "gomod" },
+    build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
+  },
+
   -- lspconfig
   {
     "neovim/nvim-lspconfig",
