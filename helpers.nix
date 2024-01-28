@@ -1,6 +1,6 @@
-{ pkgs, lib, ... }:
+{ pkgs, ... }:
 let 
-  nixGL = import <nixgl> {};
+  nixGL = pkgs.nixgl.auto.nixGLDefault; 
   nixGLWrap = pkg:
     let
       bin = "${pkg}/bin";
@@ -10,7 +10,7 @@ let
       name = "nixGL-${pkg.name}";
       paths = map
         (name: pkgs.writeShellScriptBin name ''
-          exec -a "$0" ${nixGL.auto.nixGLDefault}/bin/nixGL ${bin}/${name} "$@"
+          exec -a "$0" ${nixGL}/bin/nixGL ${bin}/${name} "$@"
         '')
         executables;
     };

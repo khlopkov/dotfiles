@@ -15,7 +15,6 @@ pkgs: with pkgs;
   };
   helpers = import ./helpers.nix {
     inherit pkgs;
-    inherit lib;
   };
 
   # See compatibility matrix
