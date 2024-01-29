@@ -65,4 +65,7 @@ in [
     gradle      # Gradle build tool for Java projects
     pkgs.go     # golang pkg
     docker-compose
+
+    # Messengers
+    (helpers.nixGLWrap pkgs.telegram-desktop)  # Telegram uses OpenGL, nixGLWrap required to run on non-NixOS distros
   ]

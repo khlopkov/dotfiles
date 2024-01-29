@@ -54,9 +54,8 @@
   #  /etc/profiles/per-user/etsilence/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-     EDITOR = "nvim";
-     XDG_CURRENT_DESKTOP="dwm";
-
+    EDITOR = "nvim";
+    XDG_CURRENT_DESKTOP = "dwm";
   };
 
   # Let Home Manager install and manage itself.
@@ -78,6 +77,11 @@
     };
 
     profileExtra = "neofetch";
+  };
+
+  qt = {
+    enable = true;
+    platformTheme = "gtk3";
   };
 
   fonts.fontconfig.enable = true;
