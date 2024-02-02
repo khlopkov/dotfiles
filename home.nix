@@ -1,5 +1,9 @@
 { pkgs, ... }:
 {
+  imports = [
+    (import ./modules/terminal pkgs)
+  ];
+
   targets.genericLinux.enable = true;
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -22,21 +26,12 @@
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
-    ".config/nvim".source = ./dotfiles/nvim;
-    ".config/alacritty".source = ./dotfiles/alacritty;
     ".config/dwmbar".source = ./dotfiles/dwmbar;
-    ".config/tmux".source = ./dotfiles/tmux;
     ".config/sxhkd".source = ./dotfiles/sxhkd;
 
     ".Xresources".source = ./dotfiles/Xresources;
     ".xinitrc".source = ./dotfiles/xinitrc;
     ".wallpaper.jpg".source = ./dotfiles/wallpaper.jpg;
-
-    # Install Tmux Plugin Manager from the Github repository
-    ".tmux/plugins/tpm".source = builtins.fetchGit {
-      url = "https://github.com/tmux-plugins/tpm";
-      rev = "99469c4a9b1ccf77fade25842dc7bafbc8ce9946";
-    };
   };
 
   # Home Manager can also manage your environment variables through
@@ -55,30 +50,12 @@
   #  /etc/profiles/per-user/etsilence/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    EDITOR = "nvim";
     XDG_CURRENT_DESKTOP = "dwm";
   };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-  programs.zsh = {
-    enable = true;
-    shellAliases = {
-      vim = "nvim";
-    };
-    oh-my-zsh = {
-      enable = true;
-      plugins = [ 
-        "git"
-        "gradle"
-        "docker"
-      ];
-      theme = "robbyrussell";
-    };
-
-    profileExtra = "neofetch";
-  };
 
   qt = {
     enable = true;
