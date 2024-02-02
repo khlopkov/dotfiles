@@ -8,21 +8,7 @@ pkgs: with pkgs;
     ];
   };
 
-  python3 = pkgs.python311Full.buildEnv.override {
-    extraLibs = [ 
-      pkgs.python311Full.pkgs.pip
-    ];
-  };
-  helpers = import ./helpers.nix {
-    inherit pkgs;
-  };
-
-  # See compatibility matrix
-  # https://docs.gradle.org/current/userguide/compatibility.html
-  jdk    = pkgs.jdk20;
-  gradle = (callPackage gradle-packages.gradle_8 {
-             java = jdk;
-           });
+  helpers = import ./helpers.nix { inherit pkgs; };
 in [
 
     # Desktop management
@@ -51,13 +37,6 @@ in [
     # Editors 
     pkgs.jetbrains.idea-community
 
-    # Compilers and dev tools
-    python3
-    pkgs.rustup # Rust toolchain manager
-    jdk         # Java DevKit 21
-    gradle      # Gradle build tool for Java projects
-    pkgs.go     # golang pkg
-    docker-compose
 
     # Messengers
     (helpers.nixGLWrap pkgs.telegram-desktop)  # Telegram uses OpenGL, nixGLWrap required to run on non-NixOS distros

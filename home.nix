@@ -3,6 +3,9 @@
   imports = [
     (import ./modules/terminal pkgs)
   ];
+{ pkgs, ... }: {
+  imports =
+    [ (import ./modules/terminal pkgs) (import ./modules/devkit.nix pkgs) ];
 
   targets.genericLinux.enable = true;
   # Home Manager needs a bit of information about you and the paths it should
