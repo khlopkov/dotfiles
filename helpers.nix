@@ -1,19 +1,15 @@
 { pkgs, ... }:
-let 
-  nixGL = pkgs.nixgl.auto.nixGLDefault; 
+let
+  nixGL = pkgs.nixgl.auto.nixGLDefault;
   nixGLWrap = pkg:
     let
       bin = "${pkg}/bin";
       executables = builtins.attrNames (builtins.readDir bin);
-    in
-    pkgs.buildEnv {
+    in pkgs.buildEnv {
       name = "nixGL-${pkg.name}";
-      paths = map
-        (name: pkgs.writeShellScriptBin name ''
+      paths = map (name:
+        pkgs.writeShellScriptBin name ''
           exec -a "$0" ${nixGL}/bin/nixGL ${bin}/${name} "$@"
-        '')
-        executables;
+        '') executables;
     };
-in {
-  nixGLWrap = nixGLWrap;
-}
+in { nixGLWrap = nixGLWrap; }

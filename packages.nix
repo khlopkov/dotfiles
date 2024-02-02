@@ -1,5 +1,7 @@
-pkgs: with pkgs; 
-  let dwm = pkgs.dwm.overrideAttrs {
+pkgs:
+with pkgs;
+let
+  dwm = pkgs.dwm.overrideAttrs {
     version = "6.4";
     patches = [
       ./dotfiles/dwm/patches/dwm-xrdb-6.4.diff
@@ -11,33 +13,33 @@ pkgs: with pkgs;
   helpers = import ./helpers.nix { inherit pkgs; };
 in [
 
-    # Desktop management
-    pkgs.dmenu     # Suckless' menu
-    dwm            # Suckless' desktop manager
-    pkgs.dwmbar    # Suckless' bar
-    pkgs.picom     # X11 composer for opacity https://github.com/yshui/picom
-    pkgs.nerdfonts # A lot of fonts with icons
-    pkgs.pcmanfm   # A file manager by KDE
-    pkgs.feh       # Image viewer, set background
-    pkgs.sxhkd     # X11 keybindings daemon
+  # Desktop management
+  pkgs.dmenu # Suckless' menu
+  dwm # Suckless' desktop manager
+  pkgs.dwmbar # Suckless' bar
+  pkgs.picom # X11 composer for opacity https://github.com/yshui/picom
+  pkgs.nerdfonts # A lot of fonts with icons
+  pkgs.pcmanfm # A file manager by KDE
+  pkgs.feh # Image viewer, set background
+  pkgs.sxhkd # X11 keybindings daemon
 
-    # Browser
-    pkgs.firefox
+  # Browser
+  pkgs.firefox
 
-    # System preferences
-    pkgs.pavucontrol          # sound control (Pulse Audio)
-    pkgs.networkmanagerapplet # Network Manager GUI
+  # System preferences
+  pkgs.pavucontrol # sound control (Pulse Audio)
+  pkgs.networkmanagerapplet # Network Manager GUI
 
-    # Utilities
-    pkgs.unzip
-    pkgs.git
-    pkgs.xclip   # X11 Clipboard
-    pkgs.ripgrep # For recursive search
-    
-    # Editors 
-    pkgs.jetbrains.idea-community
+  # Utilities
+  pkgs.unzip
+  pkgs.git
+  pkgs.xclip # X11 Clipboard
+  pkgs.ripgrep # For recursive search
 
+  # Editors 
+  pkgs.jetbrains.idea-community
 
-    # Messengers
-    (helpers.nixGLWrap pkgs.telegram-desktop)  # Telegram uses OpenGL, nixGLWrap required to run on non-NixOS distros
-  ]
+  # Messengers
+  (helpers.nixGLWrap
+    pkgs.telegram-desktop) # Telegram uses OpenGL, nixGLWrap required to run on non-NixOS distros
+]

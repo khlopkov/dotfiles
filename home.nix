@@ -1,8 +1,3 @@
-{ pkgs, ... }:
-{
-  imports = [
-    (import ./modules/terminal pkgs)
-  ];
 { pkgs, ... }: {
   imports =
     [ (import ./modules/terminal pkgs) (import ./modules/devkit.nix pkgs) ];
@@ -52,13 +47,10 @@
   #
   #  /etc/profiles/per-user/etsilence/etc/profile.d/hm-session-vars.sh
   #
-  home.sessionVariables = {
-    XDG_CURRENT_DESKTOP = "dwm";
-  };
+  home.sessionVariables = { XDG_CURRENT_DESKTOP = "dwm"; };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-
 
   qt = {
     enable = true;
@@ -88,12 +80,8 @@
 
   xdg.portal = {
     enable = true;
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-gtk
-    ];
-    configPackages = with pkgs; [
-      xdg-desktop-portal-gtk
-    ];
+    extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
+    configPackages = with pkgs; [ xdg-desktop-portal-gtk ];
   };
 }
 
