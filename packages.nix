@@ -42,6 +42,12 @@ in [
     (helpers.nixGLWrap pkgs.alacritty)  # Alacritty uses OpenGL, nixGLWrap required to run on non-NixOS distros
     pkgs.tmux                           # A Terminal multiplexor
     pkgs.neofetch                       # Prints information about the system in a preatty way
+    pkgs.lazygit                        # A Git terminal viewer
+    pkgs.bc                             # Simple terminal calculator
+    pkgs.glow                           # Markdown viewer
+    pkgs.httpie                         # terminal HTTP client (curl alternative)
+    pkgs.jq                             # Pretty JSON formatter
+    pkgs.htop                           # list processes (top alternative)
 
     # System preferences
     pkgs.pavucontrol          # sound control (Pulse Audio)
@@ -50,7 +56,6 @@ in [
     # Utilities
     pkgs.unzip
     pkgs.git
-    pkgs.lazygit # A Git terminal viewer
     pkgs.xclip   # X11 Clipboard
     pkgs.ripgrep # For recursive search
     
