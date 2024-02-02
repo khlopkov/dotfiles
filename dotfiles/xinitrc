@@ -6,5 +6,7 @@ dwmbar &
 nm-applet --sm-disable &
 sxhkd &
 
+. /etc/X11/Xsession.d/20dbus_xdg-runtime
+
 exec dwm
 
