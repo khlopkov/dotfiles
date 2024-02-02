@@ -85,6 +85,25 @@
     platformTheme = "gtk3";
   };
 
+  gtk = {
+    enable = true;
+
+    iconTheme = {
+      name = "Papirus-Dark";
+      package = pkgs.papirus-icon-theme;
+    };
+
+    theme = {
+      name = "palenight";
+      package = pkgs.palenight-theme;
+    };
+
+    cursorTheme = {
+      name = "Numix-Cursor";
+      package = pkgs.numix-cursor-theme;
+    };
+  };
+
   fonts.fontconfig.enable = true;
 
   xdg.portal = {
