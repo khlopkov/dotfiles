@@ -31,7 +31,7 @@ in [
     pkgs.dwmbar    # Suckless' bar
     pkgs.picom     # X11 composer for opacity https://github.com/yshui/picom
     pkgs.nerdfonts # A lot of fonts with icons
-    pkgs.dolphin   # A file manager by KDE
+    pkgs.pcmanfm   # A file manager by KDE
     pkgs.feh       # Image viewer, set background
     pkgs.sxhkd     # X11 keybindings daemon
 
