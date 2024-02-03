@@ -4,17 +4,15 @@ let helpers = import ./helpers.nix { inherit pkgs; };
 in [
 
   # Browser
-  pkgs.firefox
+  firefox
 
   # Utilities
-  pkgs.unzip
-  pkgs.git
-  pkgs.ripgrep # For recursive search
+  unzip
 
   # Editors 
-  pkgs.jetbrains.idea-community
+  jetbrains.idea-community
 
   # Messengers
   (helpers.nixGLWrap
-    pkgs.telegram-desktop) # Telegram uses OpenGL, nixGLWrap required to run on non-NixOS distros
+    telegram-desktop) # Telegram uses OpenGL, nixGLWrap required to run on non-NixOS distros
 ]

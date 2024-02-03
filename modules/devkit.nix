@@ -12,12 +12,13 @@ let
     java = jdk;
   });
 in {
-  home.packages = [
+  home.packages = with pkgs; [
     python3
-    pkgs.rustup # Rust toolchain manager
+    rustup # Rust toolchain manager
     jdk # Java DevKit 21
     gradle # Gradle build tool for Java projects
-    pkgs.go # golang pkg
-    pkgs.docker-compose
+    go # golang pkg
+    docker-compose
+    git
   ];
 }
