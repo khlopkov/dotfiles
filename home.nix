@@ -1,5 +1,10 @@
-{ pkgs, ... }: {
-  imports = [ ./modules/terminal ./modules/devkit.nix ./modules/desktop ];
+{ ... }: {
+  imports = [
+    ./modules/terminal
+    ./modules/devkit.nix
+    ./modules/desktop
+    ./modules/programs.nix
+  ];
 
   targets.genericLinux.enable = true;
   # Home Manager needs a bit of information about you and the paths it should
@@ -15,8 +20,6 @@
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
   home.stateVersion = "23.11"; # Please read the comment before changing.
-
-  home.packages = import ./packages.nix pkgs;
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
