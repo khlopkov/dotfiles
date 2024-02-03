@@ -1,4 +1,4 @@
-pkgs:
+{ pkgs, ... }:
 let
   python3 = pkgs.python311Full.buildEnv.override {
     extraLibs = [ pkgs.python311Full.pkgs.pip ];

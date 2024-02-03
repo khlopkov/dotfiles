@@ -1,4 +1,4 @@
-pkgs:
+{ pkgs, ... }:
 let helpers = import ../../helpers.nix { inherit pkgs; };
 in {
 
