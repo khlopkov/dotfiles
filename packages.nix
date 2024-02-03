@@ -1,39 +1,14 @@
 pkgs:
 with pkgs;
-let
-  dwm = pkgs.dwm.overrideAttrs {
-    version = "6.4";
-    patches = [
-      ./dotfiles/dwm/patches/dwm-xrdb-6.4.diff
-      ./dotfiles/dwm/patches/dwm-systray-6.4.diff
-      ./dotfiles/dwm/patches/my_dwm_patch.diff
-    ];
-  };
-
-  helpers = import ./helpers.nix { inherit pkgs; };
+let helpers = import ./helpers.nix { inherit pkgs; };
 in [
-
-  # Desktop management
-  pkgs.dmenu # Suckless' menu
-  dwm # Suckless' desktop manager
-  pkgs.dwmbar # Suckless' bar
-  pkgs.picom # X11 composer for opacity https://github.com/yshui/picom
-  pkgs.nerdfonts # A lot of fonts with icons
-  pkgs.pcmanfm # A file manager by KDE
-  pkgs.feh # Image viewer, set background
-  pkgs.sxhkd # X11 keybindings daemon
 
   # Browser
   pkgs.firefox
 
-  # System preferences
-  pkgs.pavucontrol # sound control (Pulse Audio)
-  pkgs.networkmanagerapplet # Network Manager GUI
-
   # Utilities
   pkgs.unzip
   pkgs.git
-  pkgs.xclip # X11 Clipboard
   pkgs.ripgrep # For recursive search
 
   # Editors 
