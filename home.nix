@@ -2,7 +2,8 @@
   imports = [
     ./modules/terminal
     ./modules/devkit.nix
-    ./modules/desktop
+    ./modules/desktop/i3.nix
+    #./modules/desktop
     ./modules/programs.nix
   ];
 
