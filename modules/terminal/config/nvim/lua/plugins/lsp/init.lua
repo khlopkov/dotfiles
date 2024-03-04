@@ -1,5 +1,20 @@
 local Util = require("lazyvim.util")
 
+local Dictionary_file = {
+    ["en-US"] = {vim.fn.getenv("HOME") .. "/.local/share/nvim/site/spell/en.utf-8.add"} -- there is another way to find ~/.config/nvim ?
+}
+
+local function readFiles(files)
+    local dict = {}
+    for _,file in ipairs(files) do
+        local f = io.open(file, "r")
+        for l in f:lines() do
+            table.insert(dict, l)
+        end
+    end
+    return dict
+end
+
 return {
   -- nix support
   {
@@ -88,6 +103,15 @@ return {
               },
               completion = {
                 callSnippet = "Replace",
+              },
+            },
+          },
+        },
+        ltex = {
+          settings = {
+            ltex = {
+              dictionary = {
+                ['en-US'] = readFiles(Dictionary_file["en-US"] or {}),
               },
             },
           },
