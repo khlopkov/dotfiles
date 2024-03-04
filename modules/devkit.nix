@@ -1,8 +1,6 @@
 { pkgs, ... }:
 let
-  python3 = pkgs.python311Full.buildEnv.override {
-    extraLibs = [ pkgs.python311Full.pkgs.pip ];
-  };
+  python3 = pkgs.python3;
 
   # See compatibility matrix
   # https://docs.gradle.org/current/userguide/compatibility.html
@@ -14,6 +12,7 @@ let
 in {
   home.packages = with pkgs; [
     python3
+    python3.pkgs.pip
     rustup # Rust toolchain manager
     jdk # Java DevKit 21
     gradle # Gradle build tool for Java projects
