@@ -89,7 +89,12 @@ return {
       formatters_by_ft = {
         kotlin = { "ktlint" },
         lua = { "stylua" },
-        ["*"] = { "editorconfig-checker" },
+        ["*"] = { "editorconfig-checker", "prettier" },
+      },
+
+      format_on_save = {
+        timeout_ms = 500,
+        lsp_fallback = true,
       },
     },
     config = function(_, opts)
