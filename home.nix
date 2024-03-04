@@ -1,8 +1,8 @@
 { ... }: {
   imports = [
     ./modules/terminal
-    ./modules/devkit.nix
     ./modules/desktop/i3.nix
+    ./modules/devkit
     #./modules/desktop
     ./modules/programs.nix
   ];
