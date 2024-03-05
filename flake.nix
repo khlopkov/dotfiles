@@ -18,12 +18,13 @@
 
   outputs = { nixgl, nixpkgs, home-manager, ... }:
     let
+      cfg = import ./config.nix;
       pkgs = import nixpkgs {
-        system = "x86_64-linux";
+        system = cfg.system;
         overlays = [ nixgl.overlay ];
       };
     in {
-      homeConfigurations.etsilence = home-manager.lib.homeManagerConfiguration {
+      homeConfigurations."${cfg.username}" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 
         # Specify your home configuration modules here, for example,

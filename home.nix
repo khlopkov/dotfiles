@@ -1,4 +1,7 @@
-{ ... }: {
+{ pkgs, ... }:
+let
+  cfg = import ./config.nix;
+in {
   imports = [
     ./modules/terminal
     ./modules/desktop/i3.nix
@@ -7,11 +10,11 @@
     ./modules/programs.nix
   ];
 
-  targets.genericLinux.enable = true;
+  targets.genericLinux.enable = pkgs.stdenv.isLinux;
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
-  home.username = "etsilence";
-  home.homeDirectory = "/home/etsilence";
+  home.username = cfg.username;
+  home.homeDirectory = cfg.homeDir;
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
