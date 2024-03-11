@@ -3,6 +3,8 @@
   home.packages = with pkgs; [
     kubectl
     kubectx
+    kubernetes-helm
+    minikube
   ];
 
   programs.zsh = {
