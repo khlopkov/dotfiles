@@ -7,8 +7,7 @@ return {
       linters_by_ft = {
         kotlin = { "ktlint" },
         yaml = { "yamllint" },
-        -- Use the "*" filetype to run linters on all filetypes.
-        -- ['*'] = { 'global linter' },
+        ["*"] = { "typos", "cspell" },
         -- Use the "_" filetype to run linters on filetypes that don't have other linters configured.
         -- ['_'] = { 'fallback linter' },
       },
@@ -91,7 +90,7 @@ return {
         kotlin = { "ktlint" },
         lua = { "stylua" },
         yaml = { "yamlfix" },
-        ["*"] = { "editorconfig-checker", "prettier" },
+        ["*"] = { "editorconfig-checker", "prettier", "typos" },
       },
     },
     config = function(_, opts)

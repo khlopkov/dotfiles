@@ -22,6 +22,7 @@ in {
     ".config/nvim".source = ./config/nvim;
     ".config/alacritty".source = ./config/alacritty;
     ".config/tmux".source = ./config/tmux;
+    ".config/cspell.json".source = ./config/cspell.json;
 
     # Install Tmux Plugin Manager from the Github repository
     ".tmux/plugins/tpm".source = builtins.fetchGit {
