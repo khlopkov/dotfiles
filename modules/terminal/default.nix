@@ -15,6 +15,7 @@ in {
     jq # Pretty JSON formatter
     htop # list processes (top alternative)
     ripgrep # For recursive search
+    diff-so-fancy # diff-so-fancy
   ];
 
   home.file = {
