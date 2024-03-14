@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   imports = [
+    ./go.nix
     ./k8s.nix
     ./java.nix
     ./gcloud.nix
@@ -9,7 +10,6 @@
 
   home.packages = with pkgs; [
     rustup # Rust toolchain manager
-    go # golang pkg
     docker-compose
     git
     nodejs
