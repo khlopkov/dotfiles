@@ -6,6 +6,7 @@ return {
       events = { "BufWritePost", "BufReadPost", "InsertLeave" },
       linters_by_ft = {
         kotlin = { "ktlint" },
+        yaml = { "yamllint" },
         -- Use the "*" filetype to run linters on all filetypes.
         -- ['*'] = { 'global linter' },
         -- Use the "_" filetype to run linters on filetypes that don't have other linters configured.
@@ -89,12 +90,8 @@ return {
       formatters_by_ft = {
         kotlin = { "ktlint" },
         lua = { "stylua" },
+        yaml = { "yamlfix" },
         ["*"] = { "editorconfig-checker", "prettier" },
-      },
-
-      format_on_save = {
-        timeout_ms = 500,
-        lsp_fallback = true,
       },
     },
     config = function(_, opts)
