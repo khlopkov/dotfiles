@@ -13,6 +13,7 @@
     docker-compose
     git
     nodejs
+    php
   ];
 
 }

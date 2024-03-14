@@ -14,16 +14,25 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    phps.url = "github:fossar/nix-phps";
   };
 
-  outputs = { nixgl, nixpkgs, home-manager, ... }:
+  outputs = { nixgl, nixpkgs, home-manager, phps, ... }:
     let
       cfg = import ./config.nix;
       pkgs = import nixpkgs {
         system = cfg.system;
-        overlays = [ nixgl.overlay ];
+        overlays = [ 
+          nixgl.overlay 
+          phps.overlays.default
+        ];
       };
     in {
+      devShell.x86_64-darwin = nixpkgs.legacyPackages.x86_64-darwin.mkShell {
+        buildInputs = [
+          phps.packages."${cfg.system}".php
+        ];
+      };
       homeConfigurations."${cfg.username}" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 
