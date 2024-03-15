@@ -1,6 +1,9 @@
 { pkgs, ... }:
 let helpers = import ../../helpers.nix { inherit pkgs; };
 in {
+  imports = [
+    ./irssi.nix
+  ];
 
   home.packages = with pkgs; [
     (helpers.nixGLWrap
