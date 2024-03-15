@@ -116,6 +116,11 @@ return {
             },
           },
         },
+        helm_ls = {
+          yamlls = {
+            path = "yaml-language-server",
+          },
+        },
         nil_ls = {},
         kotlin_language_server = {},
         clangd = {},
