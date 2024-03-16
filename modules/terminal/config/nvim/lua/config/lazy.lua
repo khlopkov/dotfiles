@@ -31,7 +31,7 @@ require("lazy").setup({
   },
   -- .config/nvim is readonly in Nix controlled environment,
   -- replace lock file path with ./local/share/nvim/....
-  lockfile = lazypath,
+  lockfile = vim.fn.stdpath("data") .. "/lazy-lock.json",
   install = { colorscheme = { "tokyonight", "habamax" } },
   checker = { enabled = false }, -- automatically check for plugin updates
   performance = {
