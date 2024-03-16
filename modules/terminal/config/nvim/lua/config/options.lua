@@ -1,13 +1,6 @@
-vim.g.autoformat = true
-vim.g.root_spec = { "lsp", { ".git", "lua" }, "cwd" }
-
+-- Options are automatically loaded before lazy.nvim startup
+-- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
+-- Add any additional options here
 local opt = vim.opt
-
-opt.relativenumber = true -- add relative line numbers
-vim.wo.number = true      -- Show focused line nubmer
-opt.expandtab = true      -- Use spaces instead of tabs
-opt.cursorline = true     -- Enable highlighting of the current line
-opt.termguicolors = true  -- enable termguicolors
-opt.spell = true          -- enable spellcheck
-
-require("tokyonight").load()
+vim.wo.number = true -- Show focused line number
+opt.spell = true -- enable spellcheck
