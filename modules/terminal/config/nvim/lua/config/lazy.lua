@@ -29,6 +29,9 @@ require("lazy").setup({
     version = false, -- always use the latest git commit
     -- version = "*", -- try installing the latest stable version for plugins that support semver
   },
+  -- .config/nvim is readonly in Nix controlled environment,
+  -- replace lock file path with ./local/share/nvim/....
+  lockfile = lazypath,
   install = { colorscheme = { "tokyonight", "habamax" } },
   checker = { enabled = false }, -- automatically check for plugin updates
   performance = {
