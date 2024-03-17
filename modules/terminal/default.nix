@@ -19,6 +19,7 @@ in {
     htop # list processes (top alternative)
     ripgrep # For recursive search
     diff-so-fancy # diff-so-fancy
+    ollama # self-hosted AI chat bot
   ];
 
   home.file = {
