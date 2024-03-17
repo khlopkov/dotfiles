@@ -9,7 +9,6 @@ let
     ];
   };
 in {
-
   home.packages = with pkgs; [
     # Desktop management
     dmenu # Suckless' menu

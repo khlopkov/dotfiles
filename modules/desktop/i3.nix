@@ -13,7 +13,7 @@ in {
     # TODO replace with Rofi
     dmenu
     polybar
-    
+
     picom # X11 composer for opacity https://github.com/yshui/picom
     nerdfonts # A lot of fonts with icons
     pcmanfm # A file manager

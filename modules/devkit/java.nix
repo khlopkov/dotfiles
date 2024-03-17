@@ -4,14 +4,12 @@ let
   # https://docs.gradle.org/current/userguide/compatibility.html
   jdk = pkgs.jdk21;
 
-  gradle = (pkgs.callPackage pkgs.gradle-packages.gradle_8 {
+  gradle = pkgs.callPackage pkgs.gradle-packages.gradle_8 {
     # Reuse same JDK version
     java = jdk;
-  });
-
-  maven = pkgs.maven.override {
-    jdk = jdk;
   };
+
+  maven = pkgs.maven.override { jdk = jdk; };
 in {
   home.packages = [
     jdk # Java DevKit 21

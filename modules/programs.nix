@@ -8,7 +8,7 @@ in {
     # Utilities
     unzip
 
-    # Editors 
+    # Editors
     jetbrains.idea-community
 
     # Messengers

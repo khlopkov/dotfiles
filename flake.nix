@@ -5,7 +5,7 @@
     # Specify the source of Home Manager and Nixpkgs.
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixgl = {
-      url = "github:guibou/nixGL"; 
+      url = "github:guibou/nixGL";
       # Probably better to remove to work with pinned nixpkgs from of nixGL's inputs.
       # Though it works with current nixpkgs, though will work with the same version as home environment
       inputs.nixpkgs.follows = "nixpkgs";
@@ -22,26 +22,23 @@
       cfg = import ./config.nix;
       pkgs = import nixpkgs {
         system = cfg.system;
-        overlays = [ 
-          nixgl.overlay 
-          phps.overlays.default
-        ];
+        overlays = [ nixgl.overlay phps.overlays.default ];
       };
     in {
-      devShell.x86_64-darwin = nixpkgs.legacyPackages.x86_64-darwin.mkShell {
-        buildInputs = [
-          phps.packages."${cfg.system}".php
-        ];
+      devShell.${cfg.system} = nixpkgs.legacyPackages.${cfg.system}.mkShell {
+        buildInputs = [ phps.packages."${cfg.system}".php ];
       };
-      homeConfigurations."${cfg.username}" = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
 
-        # Specify your home configuration modules here, for example,
-        # the path to your home.nix.
-        modules = [ ./home.nix ];
+      homeConfigurations."${cfg.username}" =
+        home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
 
-        # Optionally use extraSpecialArgs
-        # to pass through arguments to home.nix
-      };
+          # Specify your home configuration modules here, for example,
+          # the path to your home.nix.
+          modules = [ ./home.nix ];
+
+          # Optionally use extraSpecialArgs
+          # to pass through arguments to home.nix
+        };
     };
 }
