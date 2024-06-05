@@ -14,6 +14,9 @@ in {
   # manage.
   home.username = cfg.username;
   home.homeDirectory = cfg.homeDir;
+  home.language = {
+    base = "en_US.UTF-8";
+  };
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
