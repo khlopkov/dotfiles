@@ -3,7 +3,7 @@
 
   inputs = {
     # Specify the source of Home Manager and Nixpkgs.
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
     nixgl = {
       url = "github:guibou/nixGL";
       # Probably better to remove to work with pinned nixpkgs from of nixGL's inputs.
