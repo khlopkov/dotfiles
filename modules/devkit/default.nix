@@ -7,5 +7,6 @@
     git
     nodejs
     php
+    phpunit
   ];
 }
