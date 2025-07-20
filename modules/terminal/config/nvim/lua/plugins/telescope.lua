@@ -1,9 +1,12 @@
-local Util = require("lazyvim.util")
 return {
-  {
-    "nvim-telescope/telescope.nvim",
-    keys = {
-      { "<leader>fu", Util.telescope("lsp_references"), desc = "usages" },
+  "ibhagwan/fzf-lua",
+  keys = {
+    {
+      "<leader>fu",
+      function()
+        require("fzf-lua").lsp_references()
+      end,
+      desc = "usages",
     },
   },
 }

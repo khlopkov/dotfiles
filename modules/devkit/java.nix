@@ -9,7 +9,7 @@ let
     java = jdk;
   };
 
-  maven = pkgs.maven.override { jdk = jdk; };
+  maven = pkgs.maven.override { jdk_headless = jdk; };
 in {
   home.packages = [
     jdk # Java DevKit 21

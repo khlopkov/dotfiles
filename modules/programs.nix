@@ -3,7 +3,7 @@ let helpers = import ../helpers.nix { inherit pkgs; };
 in {
   home.packages = with pkgs; [
     # Browser
-    firefox
+    firefox-bin
 
     # Utilities
     unzip
