@@ -1,5 +1,11 @@
-{ pkgs, ... }: {
-  home.packages = with pkgs; [ kubectl kubectx kubernetes-helm minikube ];
+{ pkgs, ... }:
+{
+  home.packages = with pkgs; [
+    kubectl
+    kubectx
+    kubernetes-helm
+    minikube
+  ];
 
   programs.zsh = {
     shellAliases = {

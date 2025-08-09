@@ -8,7 +8,8 @@ let
       ./config/dwm/patches/my_dwm_patch.diff
     ];
   };
-in {
+in
+{
   home.packages = with pkgs; [
     # Desktop management
     dmenu # Suckless' menu
@@ -35,7 +36,9 @@ in {
     ".wallpaper.jpg".source = ./config/wallpaper.jpg;
   };
 
-  home.sessionVariables = { XDG_CURRENT_DESKTOP = "dwm"; };
+  home.sessionVariables = {
+    XDG_CURRENT_DESKTOP = "dwm";
+  };
 
   xdg.portal = {
     enable = true;

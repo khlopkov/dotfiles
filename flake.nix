@@ -17,28 +17,38 @@
     phps.url = "github:fossar/nix-phps";
   };
 
-  outputs = { nixgl, nixpkgs, home-manager, phps, ... }:
+  outputs =
+    {
+      nixgl,
+      nixpkgs,
+      home-manager,
+      phps,
+      ...
+    }:
     let
       cfg = import ./config.nix;
       pkgs = import nixpkgs {
         system = cfg.system;
-        overlays = [ nixgl.overlay phps.overlays.default ];
+        overlays = [
+          nixgl.overlay
+          phps.overlays.default
+        ];
       };
-    in {
+    in
+    {
       devShell.${cfg.system} = nixpkgs.legacyPackages.${cfg.system}.mkShell {
         buildInputs = [ phps.packages."${cfg.system}".php ];
       };
 
-      homeConfigurations."${cfg.username}" =
-        home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
+      homeConfigurations."${cfg.username}" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
 
-          # Specify your home configuration modules here, for example,
-          # the path to your home.nix.
-          modules = [ ./home.nix ];
+        # Specify your home configuration modules here, for example,
+        # the path to your home.nix.
+        modules = [ ./home.nix ];
 
-          # Optionally use extraSpecialArgs
-          # to pass through arguments to home.nix
-        };
+        # Optionally use extraSpecialArgs
+        # to pass through arguments to home.nix
+      };
     };
 }

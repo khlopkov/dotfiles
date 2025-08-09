@@ -1,6 +1,8 @@
 { pkgs, ... }:
-let helpers = import ../../helpers.nix { inherit pkgs; };
-in {
+let
+  helpers = import ../../helpers.nix { inherit pkgs; };
+in
+{
   imports = [ ./irssi.nix ];
 
   home.packages = with pkgs; [
@@ -41,10 +43,16 @@ in {
 
   programs.zsh = {
     enable = true;
-    shellAliases = { vim = "nvim"; };
+    shellAliases = {
+      vim = "nvim";
+    };
     oh-my-zsh = {
       enable = true;
-      plugins = [ "git" "gradle" "docker" ];
+      plugins = [
+        "git"
+        "gradle"
+        "docker"
+      ];
       theme = "robbyrussell";
     };
 

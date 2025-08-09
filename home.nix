@@ -1,6 +1,8 @@
 { pkgs, ... }:
-let cfg = import ./config.nix;
-in {
+let
+  cfg = import ./config.nix;
+in
+{
   imports = [
     ./modules/terminal
     ./modules/desktop/i3.nix

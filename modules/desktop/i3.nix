@@ -5,7 +5,8 @@ let
     i3 = pkgs.i3;
     pulseSupport = true;
   };
-in {
+in
+{
   home.packages = with pkgs; [
     # Desktop management
     i3
@@ -39,7 +40,9 @@ in {
 
   fonts.fontconfig.enable = true;
 
-  home.sessionVariables = { XDG_CURRENT_DESKTOP = "i3"; };
+  home.sessionVariables = {
+    XDG_CURRENT_DESKTOP = "i3";
+  };
 
   xdg.portal = {
     enable = true;

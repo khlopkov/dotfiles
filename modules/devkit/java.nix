@@ -10,12 +10,15 @@ let
   };
 
   maven = pkgs.maven.override { jdk_headless = jdk; };
-in {
+in
+{
   home.packages = [
     jdk # Java DevKit 21
     gradle # Gradle build tool for Java projects
     maven
   ];
 
-  home.sessionVariables = { JAVA_HOME = "${jdk}"; };
+  home.sessionVariables = {
+    JAVA_HOME = "${jdk}";
+  };
 }
