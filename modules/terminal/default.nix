@@ -6,7 +6,7 @@
     (foo.nixGLWrap alacritty) # Alacritty uses OpenGL, nixGLWrap required to run on non-NixOS distros
     neovim
     tmux # A Terminal multiplexor
-    neofetch # Prints information about the system in a preatty way
+    fastfetch # Prints information about the system in a preatty way
     lazygit # A Git terminal viewer
     bc # Simple terminal calculator
     glow # Markdown viewer
@@ -52,6 +52,6 @@
       theme = "robbyrussell";
     };
 
-    profileExtra = "neofetch";
+    profileExtra = "fastfetch";
   };
 }
