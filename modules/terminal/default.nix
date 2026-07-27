@@ -1,13 +1,9 @@
-{ pkgs, ... }:
-let
-  helpers = import ../../helpers.nix { inherit pkgs; };
-in
+{ pkgs, foo, ... }:
 {
   imports = [ ./irssi.nix ];
 
   home.packages = with pkgs; [
-    (helpers.nixGLWrap
-      alacritty) # Alacritty uses OpenGL, nixGLWrap required to run on non-NixOS distros
+    (foo.nixGLWrap alacritty) # Alacritty uses OpenGL, nixGLWrap required to run on non-NixOS distros
     neovim
     tmux # A Terminal multiplexor
     neofetch # Prints information about the system in a preatty way

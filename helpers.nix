@@ -16,7 +16,13 @@ let
         ''
       ) executables;
     };
+  nixGLWrapPerSystem =
+    pkg:
+    let
+      isLinux = pkgs.stdenv.isLinux;
+    in
+    if isLinux then (nixGLWrap pkg) else pkg;
 in
 {
-  nixGLWrap = nixGLWrap;
+  nixGLWrap = nixGLWrapPerSystem;
 }

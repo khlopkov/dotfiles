@@ -1,11 +1,12 @@
-{ pkgs, ... }:
+args@{ pkgs, ... }:
 let
   cfg = import ./config.nix;
+  helpers = (import ./helpers.nix args);
 in
 {
   imports = [
-    ./modules/terminal
     ./modules/desktop/i3.nix
+    (import ./modules/terminal (args // { foo = helpers; }))
     ./modules/devkit
     #./modules/desktop
     ./modules/programs.nix
