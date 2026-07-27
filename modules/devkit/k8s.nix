@@ -4,7 +4,6 @@
     kubectl
     kubectx
     kubernetes-helm
-    minikube
   ];
 
   programs.zsh = {
