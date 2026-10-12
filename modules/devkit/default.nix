@@ -7,6 +7,7 @@
     ./gcloud.nix
     ./python.nix
     ./network.nix
+    ./grafana.nix
   ];
 
   home.packages = with pkgs; [
