@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   imports = [
+    ./ai.nix
     ./go.nix
     ./k8s.nix
     ./java.nix
