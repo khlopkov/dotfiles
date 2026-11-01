@@ -26,7 +26,15 @@
       ...
     }:
     let
-      cfg = import ./config.nix;
+      cfgRaw = builtins.tryEval (import ./config.nix);
+      cfg = if cfgRaw.success then cfgRaw.value else throw ''
+        Home Manager configuration error: config.nix not found.
+
+        Please copy config.nix.example to config.nix and fill in your values:
+          cp config.nix.example config.nix
+
+        Required fields: username, system, homeDir
+      '';
       pkgs = import nixpkgs {
         system = cfg.system;
         overlays = [

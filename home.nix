@@ -1,15 +1,14 @@
 args@{ pkgs, ... }:
 let
-  cfg = import ./config.nix;
+  cfg = (import ./config.nix);
+  desktop = (builtins.getAttr "desktop" cfg) ? "none";
   helpers = (import ./helpers.nix args);
 in
 {
   imports = [
-    ./modules/desktop/i3.nix
+    (import ./modules/desktop { inherit pkgs desktop; })
     (import ./modules/terminal (args // { foo = helpers; }))
     ./modules/devkit
-    #./modules/desktop
-    ./modules/programs.nix
   ];
 
   targets.genericLinux.enable = pkgs.stdenv.isLinux;

@@ -1,0 +1,9 @@
+{
+  username = "your-username";
+  system = "aarch64-darwin";
+  homeDir = "/home/your-username";
+
+  # Desktop environment: "i3", "dwm", or "none"
+  # (only used on Linux; Darwin is unaffected)
+  desktop = "none";
+}
