@@ -1,0 +1,31 @@
+version: '3'
+
+env:
+  HOME_MANAGER_SWITCH_FLAGS: ''
+
+tasks:
+  default:
+    desc: Show available commands
+    cmds:
+      - task --list
+
+  switch:
+    desc: Apply home-manager configuration
+    cmds:
+      - home-manager switch {{.HOME_MANAGER_SWITCH_FLAGS}}
+
+  dry-run:
+    desc: Preview what home-manager will do (without applying)
+    cmds:
+      - home-manager build
+    silent: true
+
+  update:
+    desc: Update flake dependencies
+    cmds:
+      - nix flake update
+
+  clean:
+    desc: Remove old generations
+    cmds:
+      - home-manager gc
