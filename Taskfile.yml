@@ -3,6 +3,17 @@ version: '3'
 env:
   HOME_MANAGER_SWITCH_FLAGS: ''
 
+vars:
+  LOCAL_CONFIG_DIR: '{{.TASKFILE_DIR}}/local'
+  USERNAME:
+    sh: nix eval --raw --file '{{.LOCAL_CONFIG_DIR}}/config.nix' username
+  # Untracked machine-specific config, plugged into the flake as `local-config` input.
+  # Explicit flake attribute skips home-manager's user@host probing, which
+  # evaluates the flake without the override.
+  LOCAL_CONFIG_FLAGS: >-
+    --flake '{{.TASKFILE_DIR}}#{{.USERNAME}}'
+    --override-input local-config 'path:{{.LOCAL_CONFIG_DIR}}'
+
 tasks:
   default:
     desc: Show available commands
@@ -12,12 +23,12 @@ tasks:
   switch:
     desc: Apply home-manager configuration
     cmds:
-      - home-manager switch {{.HOME_MANAGER_SWITCH_FLAGS}}
+      - home-manager switch {{.LOCAL_CONFIG_FLAGS}} {{.HOME_MANAGER_SWITCH_FLAGS}}
 
   dry-run:
     desc: Preview what home-manager will do (without applying)
     cmds:
-      - home-manager build
+      - home-manager build {{.LOCAL_CONFIG_FLAGS}}
     silent: true
 
   update:

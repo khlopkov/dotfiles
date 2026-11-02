@@ -15,6 +15,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     phps.url = "github:fossar/nix-phps";
+
+    # Machine-specific configuration, must be overridden with your untracked
+    # local config (see Taskfile.yml):
+    #   --override-input local-config path:$PWD/local
+    # Defaults to this repo only as a stub, which has no config.nix.
+    local-config = {
+      url = "path:./local";
+      flake = false;
+    };
   };
 
   outputs =
@@ -23,18 +32,12 @@
       nixpkgs,
       home-manager,
       phps,
+      local-config,
       ...
     }:
     let
-      cfgRaw = builtins.tryEval (import ./config.nix);
-      cfg = if cfgRaw.success then cfgRaw.value else throw ''
-        Home Manager configuration error: config.nix not found.
-
-        Please copy config.nix.example to config.nix and fill in your values:
-          cp config.nix.example config.nix
-
-        Required fields: username, system, homeDir
-      '';
+      localCfgFile = "${local-config}/config.nix";
+      cfg = import localCfgFile;
       pkgs = import nixpkgs {
         system = cfg.system;
         overlays = [
@@ -55,8 +58,7 @@
         # the path to your home.nix.
         modules = [ ./home.nix ];
 
-        # Optionally use extraSpecialArgs
-        # to pass through arguments to home.nix
+        extraSpecialArgs = { inherit cfg; };
       };
     };
 }

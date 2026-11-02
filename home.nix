@@ -1,7 +1,6 @@
-args@{ pkgs, ... }:
+args@{ pkgs, cfg, ... }:
 let
-  cfg = (import ./config.nix);
-  desktop = (builtins.getAttr "desktop" cfg) ? "none";
+  desktop = cfg.desktop or "none";
   helpers = (import ./helpers.nix args);
 in
 {
